@@ -1,5 +1,7 @@
 # EAC-Kernel-Packet-Fucker
 Not my code. Only for saving
+https://www.unknowncheats.me/forum/anti-cheat-bypass/503052-easy-anti-cheat-kernel-packet-fucker.html
+
 
 This is the Easy Anti-Cheat Kernel Packet Fucker (for short, EACKPFucker).
 What is this? Basically, packets via their kernel mode driver are not going to be sent to them, which means your pasta pasta 2023 kdmapper FUD bypasses can be used without any trouble.
