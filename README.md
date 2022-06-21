@@ -37,3 +37,20 @@ Okay, say someone was to simply.. do this:
 
 
 PATCHED:https://www.unknowncheats.me/forum/3457323-post50.html
+
+
+Looks like EAC changed their dynamic import code to break the method after seeing this thread.
+
+They now resolve ExAllocatePoolWithTag once on start-up with the old find-by-hash method, but it's stored crypted.
+
+![image](https://user-images.githubusercontent.com/13917777/174869973-c5d67744-8c3b-4b87-86e4-b70dd5dadd24.png)
+
+Then when they want to call it they call the crypt function again but with the third param set to 0 instead of 1 to decrypt instead of encrypt.
+
+![image](https://user-images.githubusercontent.com/13917777/174870014-975f7dbf-90c3-4af3-80fa-8f61e72e15ec.png)
+
+For reference this is how they used to do it, just call the resolve function inline the at the first call attempt and then cache the plain pointer for future calls.
+
+![image](https://user-images.githubusercontent.com/13917777/174870062-2f0fa0a1-5dc4-4b5d-87ff-3f57906f9a2b.png)
+
+Knowing EAC you could probably just call import_cipher with your hook address and set last param to 1 to blindly bypass this.
